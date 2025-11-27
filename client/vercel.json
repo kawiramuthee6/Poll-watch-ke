@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://your-pollwatch-api.onrender.com/api/$1"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "https://your-pollwatch-api.onrender.com"
+  }
+}
