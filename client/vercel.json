@@ -6,10 +6,10 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://your-pollwatch-api.onrender.com/api/$1"
+      "destination": "https://poll-watch-ke.onrender.com/api/$1"
     }
   ],
   "env": {
-    "VITE_API_URL": "https://your-pollwatch-api.onrender.com"
+    "VITE_API_URL": "https://poll-watch-ke.onrender.com"
   }
 }
