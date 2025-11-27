@@ -46,8 +46,8 @@ VITE_API_URL=https://your-pollwatch-api.onrender.com
 
 3. **Set Environment Variables**
    ```
-   MONGO_URI=mongodb+srv://kawiramutheesk_db_user:NLWv68Kd74ESrvUd@cluster0.ocwl1g1.mongodb.net/pollwatch?retryWrites=true&w=majority
-   JWT_SECRET=gYefr3iyR4tnZG6V
+   MONGO_URI=your-mongodb-atlas-connection-string-here
+   JWT_SECRET=your-secure-jwt-secret-here
    NODE_ENV=production
    PORT=10000
    ```
