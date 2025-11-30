@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Shield, Eye, EyeOff, CheckCircle2, X } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
+import Nav from "@/components/Nav";
 
 const Register = () => {
   const { user, register } = useAuth();
@@ -94,11 +95,8 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center p-4">
+      <Nav />
       <div className="w-full max-w-md">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8">
-          <Shield className="h-10 w-10 text-primary" />
-          <span className="text-3xl font-bold">PollWatch KE</span>
-        </Link>
 
         <Card className="border-2">
           <CardHeader className="text-center">
@@ -108,6 +106,17 @@ const Register = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            <Button variant="outline" className="w-full" onClick={() => alert('Google signup integration pending backend implementation')}>
+              Continue with Google
+            </Button>
+            <div className="relative my-4">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+              </div>
+            </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>

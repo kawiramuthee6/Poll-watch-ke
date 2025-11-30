@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Eye, MapPin, Shield, Users, Vote } from "lucide-react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
+import Nav from "@/components/Nav";
 import kenyaHero from "@/assets/kenya-hero.jpg";
 
 const Index = () => {
-  const { user, logout, loading } = useAuth();
+  const { loading } = useAuth();
 
   if (loading) {
     return (
@@ -18,47 +19,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">PollWatch KE</span>
-          </div>
-          
-          <div className="hidden md:flex items-center gap-6">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-              Home
-            </Link>
-            <Link to="/monitor" className="text-muted-foreground hover:text-primary transition-colors">
-              Monitor Polls
-            </Link>
-            <Link to="/register-vote" className="text-muted-foreground hover:text-primary transition-colors">
-              Register to Vote
-            </Link>
-            <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
-              About
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {user ? (
-              <Button variant="outline" onClick={logout}>
-                Logout
-              </Button>
-            ) : (
-              <>
-                <Button variant="outline" asChild>
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button asChild className="bg-gradient-to-r from-primary to-accent">
-                  <Link to="/register">Register</Link>
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Hero Section */}
       <section 
@@ -88,10 +49,10 @@ const Index = () => {
                 Start Monitoring
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-kenya-black text-lg px-8 py-6">
+            <Button size="lg" asChild className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8 py-6">
               <Link to="/register-vote">
                 <Vote className="mr-2 h-5 w-5" />
-                Register to Vote
+                How to Register to Vote
               </Link>
             </Button>
           </div>
@@ -205,7 +166,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-accent text-white">
         <div className="container mx-auto px-4 text-center">
           <Vote className="h-16 w-16 mx-auto mb-6" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Not Registered to Vote Yet?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Become a Registered Voter</h2>
           <p className="text-xl mb-4 max-w-3xl mx-auto opacity-95">
             You can't watch the polls if you're not on the roll. Registration is <strong>FREE</strong> and 
             takes just minutes at any IEBC registration center across Kenya's 290 constituencies.
@@ -289,6 +250,30 @@ const Index = () => {
             Note: Access to monitoring features and voter registration guides requires a free account. 
             Your data is secure and anonymous reporting is always protected.
           </p>
+        </div>
+      </section>
+      {/* Support Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Support Our Mission</h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Help us build Kenya's most transparent election monitoring platform. Your donation supports technology development, youth training, and real-time election coverage.
+          </p>
+
+          <div className="bg-white rounded-lg p-8 max-w-md mx-auto shadow-lg">
+            <h3 className="text-2xl font-semibold mb-4">Donate Now</h3>
+            <div className="space-y-4 text-left">
+              <div>
+                <p className="font-semibold text-primary">M-Pesa</p>
+                <p className="text-sm text-muted-foreground">Phone: 0707243053</p>
+              </div>
+              <div>
+                <p className="font-semibold text-primary">Equity Bank</p>
+                <p className="text-sm text-muted-foreground">Paybill: 247247</p>
+                <p className="text-sm text-muted-foreground">Account: 1040179988034</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

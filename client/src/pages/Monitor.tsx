@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Shield, Camera, MapPin, AlertTriangle, Send, Users, Zap } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import Nav from "@/components/Nav";
 
 const Monitor = () => {
   const { user, loading } = useAuth();
@@ -232,19 +233,7 @@ const Monitor = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">PollWatch KE</span>
-          </Link>
-          
-          <Button variant="outline" asChild>
-            <Link to="/">Back to Home</Link>
-          </Button>
-        </div>
-      </nav>
+      <Nav />
 
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4">
